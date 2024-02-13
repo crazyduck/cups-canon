@@ -1,11 +1,11 @@
 services:
   cups:
-    build: .
+    build:
+      context: .
+      args:
+        - USERNAME=${CUPS_USER}
+        - PASSWORD=${CUPS_PASS}
     ports:
       - "631:631"   # IPP/IPPS and webserver
       - "5353:5353" # mDNS
-      - "139:139"   # SMB port
-    environment:
-      - USERNAME=${CUPS_USER}
-      - PASSWORD=${CUPS_PASS}
-      
+      - "139:139"   # SMB port      
