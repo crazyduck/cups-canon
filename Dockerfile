@@ -2,8 +2,8 @@ ARG MAINTAINER
 FROM debian:stable-slim
 MAINTAINER $MAINTAINER
 
-ARG USERNAME
-ARG PASSWORD
+ARG ADMINUSER
+ARG ADMINPASS
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
@@ -33,8 +33,8 @@ RUN useradd \
   --create-home \
   --home-dir=/home/print \
   --shell=/bin/bash \
-  --password=$(mkpasswd $PASSWORD) \
-  $USERNAME \
+  --password=$(mkpasswd $ADMINPASS) \
+  $ADMINUSER \
 && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers
 
 # Get Canon driver
