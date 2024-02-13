@@ -49,5 +49,8 @@ RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
 
+# Expose Ports
+EXPOSE 631
+
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
