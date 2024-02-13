@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-        - USERNAME=print
-        - PASSWORD=printpass
+        - ADMINUSER=print
+        - ADMINPASS=printpass
     ports:
       - "631:631"   # IPP/IPPS and webserver
       - "5353:5353" # mDNS
