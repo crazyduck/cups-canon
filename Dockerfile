@@ -30,8 +30,8 @@ RUN useradd \
   --create-home \
   --home-dir=/home/print \
   --shell=/bin/bash \
-  --password=$(mkpasswd print) \
-  print \
+  --password=$(mkpasswd ${CUPS_PASS}) \
+  ${CUPS_USER} \
 && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers
 
 # Get Canon driver
@@ -51,6 +51,8 @@ COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
 
 # Expose Ports
 EXPOSE 631
+EXPOSE 5353
+EXPOSE 139
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
