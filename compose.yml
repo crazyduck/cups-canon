@@ -3,8 +3,8 @@ services:
     build:
       context: .
       args:
-        - USERNAME=${CUPS_USER}
-        - PASSWORD=${CUPS_PASS}
+        - USERNAME=print
+        - PASSWORD=printpass
     ports:
       - "631:631"   # IPP/IPPS and webserver
       - "5353:5353" # mDNS
