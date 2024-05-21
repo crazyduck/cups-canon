@@ -24,6 +24,16 @@ RUN apt-get update \
   smbclient \
   printer-driver-cups-pdf \
   wget \
+  libatk1.0-0 \
+  libgtk2.0-0 \
+  libpango1.0-0 \
+  libpng12-0 \
+  libtiff4 \
+  libxcursor1 \
+  libxfixes3 \
+  libxi6 \
+  libxinerama1 \
+  libxrandr2 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
@@ -31,7 +41,7 @@ RUN apt-get update \
 RUN useradd \
   --groups=sudo,lp,lpadmin \
   --create-home \
-  --home-dir=/home/print \
+  --home-dir=/home/$ADMINUSER \
   --shell=/bin/bash \
   --password=$(mkpasswd $ADMINPASS) \
   $ADMINUSER \
