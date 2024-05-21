@@ -24,6 +24,7 @@ RUN apt-get update \
   smbclient \
   printer-driver-cups-pdf \
   printer-driver-gutenprint \
+  cups-backend-bjnp \
   wget \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
