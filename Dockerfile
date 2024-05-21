@@ -23,17 +23,8 @@ RUN apt-get update \
   hplip \
   smbclient \
   printer-driver-cups-pdf \
+  printer-driver-gutenprint \
   wget \
-  libatk1.0-0 \
-  libgtk2.0-0 \
-  libpango1.0-0 \
-  libpng12-0 \
-  libtiff4 \
-  libxcursor1 \
-  libxfixes3 \
-  libxi6 \
-  libxinerama1 \
-  libxrandr2 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
@@ -46,18 +37,6 @@ RUN useradd \
   --password=$(mkpasswd $ADMINPASS) \
   $ADMINUSER \
 && sed -i '/%sudo[[:space:]]/ s/ALL[[:space:]]*$/NOPASSWD:ALL/' /etc/sudoers
-
-# Get Canon driver
-RUN wget -O /tmp/ip7200-3.80-1-deb.tar.gz https://gdlp01.c-wss.com/gds/5/0100004655/01/cnijfilter-ip7200series-3.80-1-deb.tar.gz
-
-# Untar driver
-RUN tar -xvzf /tmp/ip7200-3.80-1-deb.tar.gz -C /tmp/
-
-# Run driver installer
-RUN /tmp/cnijfilter-ip7200series-3.80-1-deb/install.sh
-
-# Clean install files
-RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.tar.gz
 
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
