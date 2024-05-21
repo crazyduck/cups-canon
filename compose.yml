@@ -9,3 +9,6 @@ services:
       - "631:631"   # IPP/IPPS and webserver
       - "5353:5353" # mDNS
       - "139:139"   # SMB port      
+    volumes:
+      -  /dev/usb/lp0:/dev/usb/lp0 # route USB dev 
+      
