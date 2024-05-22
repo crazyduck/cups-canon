@@ -51,10 +51,10 @@ RUN useradd \
 
 # rebuild abondoned packages
 # libtiff4
-RUN wget -O /tmp/tiff-4.6.0rc2.tar.xz https://download.osgeo.org/libtiff/tiff-4.6.0rc2.tar.xz && tar -xf /tmp/tiff-4.6.0rc2.tar.xz -c /tmp/
+RUN wget -O /tmp/tiff-4.6.0rc2.tar.xz https://download.osgeo.org/libtiff/tiff-4.6.0rc2.tar.xz && tar -xf /tmp/tiff-4.6.0rc2.tar.xz -C /tmp/
 
 # libpng12
-RUN wget -O /tmp/libpng-1.2.59.tar.xz https://altushost-swe.dl.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz && tar -xf /tmp/libpng-1.2.59.tar.xz -c /tmp/
+RUN wget -O /tmp/libpng-1.2.59.tar.xz https://altushost-swe.dl.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz && tar -xf /tmp/libpng-1.2.59.tar.xz -C /tmp/
 
 # Get old packages
 RUN wget -O /tmp/libpng12-0_1.2.54-6_amd64.deb https://snapshot.debian.org/archive/debian/20160413T160058Z/pool/main/libp/libpng/libpng12-0_1.2.54-6_amd64.deb
