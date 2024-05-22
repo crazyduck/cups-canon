@@ -57,7 +57,7 @@ RUN useradd \
 #RUN wget -O /tmp/libpng-1.2.59.tar.xz https://altushost-swe.dl.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz && tar -xf /tmp/libpng-1.2.59.tar.xz -C /tmp/
 
 # Get old packages
-RUN wget -O /tmp/libpng12-0_1.2.54-6_amd64.deb https://snapshot.debian.org/archive/debian/20160413T160058Z/pool/main/libp/libpng/libpng12-0_1.2.54-6_amd64.deb && dpkg -i libpng12-0_1.2.54-6_amd64.deb
+RUN wget -O /tmp/libpng12-0_1.2.54-6_amd64.deb https://snapshot.debian.org/archive/debian/20160413T160058Z/pool/main/libp/libpng/libpng12-0_1.2.54-6_amd64.deb && dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
 RUN wget -O /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb https://snapshot.debian.org/archive/debian-security/20240503T212447Z/pool/updates/main/g/glibc/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb
 RUN wget -O /tmp/libtiff4_3.9.7-3_amd64.deb https://snapshot.debian.org/archive/debian/20131205T220552Z/pool/main/t/tiff3/libtiff4_3.9.7-3_amd64.deb
 
