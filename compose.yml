@@ -5,6 +5,9 @@ services:
       args:
         - ADMINUSER=print
         - ADMINPASS=printpass
+        - PRINTER_NAME=ip7200
+        - PRINTER_DESCRIPTION="Canon Pixma ip7200"
+        - PRINTER_LOCATION="Buero"
     ports:
       - "631:631"   # IPP/IPPS and webserver
       - "5353:5353" # mDNS
