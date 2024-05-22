@@ -81,4 +81,4 @@ EXPOSE 139
 CMD ["/usr/sbin/cupsd", "-f"]
 
 # Configure the ip7200 in cups
-RUN lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0
+# RUN lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0
