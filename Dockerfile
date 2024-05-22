@@ -56,11 +56,14 @@ RUN useradd \
 # libpng12
 #RUN wget -O /tmp/libpng-1.2.59.tar.xz https://altushost-swe.dl.sourceforge.net/project/libpng/libpng12/1.2.59/libpng-1.2.59.tar.xz && tar -xf /tmp/libpng-1.2.59.tar.xz -C /tmp/
 
-# Get old packages
+#RUN rm -rf /tmp/libpng-1.2.59 && rm /tmp/libpng-1.2.59.tar.xz
+#RUN rm -rf /tmp/tiff-4.6.0 && rm /tmp/tiff-4.6.0rc2.tar.xz
+
+# Get abandoned packages
 RUN wget -O /tmp/libpng12-0_1.2.54-6_amd64.deb https://snapshot.debian.org/archive/debian/20160413T160058Z/pool/main/libp/libpng/libpng12-0_1.2.54-6_amd64.deb && dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
 RUN wget -O /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb https://snapshot.debian.org/archive/debian-security/20240503T212447Z/pool/updates/main/g/glibc/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb && dpkg -i /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb
-RUN wget -O /tmp/libjpeg8_8d1-2_amd64.deb https://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb
-RUN wget -O /tmp/libtiff4_3.9.7-3_amd64.deb https://snapshot.debian.org/archive/debian/20131205T220552Z/pool/main/t/tiff3/libtiff4_3.9.7-3_amd64.deb
+RUN wget -O /tmp/libjpeg8_8d1-2_amd64.deb https://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb && dpkg -i /tmp/libjpeg8_8d1-2_amd64.deb
+RUN wget -O /tmp/libtiff4_3.9.7-3_amd64.deb https://snapshot.debian.org/archive/debian/20131205T220552Z/pool/main/t/tiff3/libtiff4_3.9.7-3_amd64.deb && dpkg -i /tmp/libtiff4_3.9.7-3_amd64.deb
 
 # Get Canon driver and untar driver
 RUN wget -O /tmp/ip7200-3.80-1-deb.tar.gz https://gdlp01.c-wss.com/gds/5/0100004655/01/cnijfilter-ip7200series-3.80-1-deb.tar.gz && tar -xf /tmp/ip7200-3.80-1-deb.tar.gz -C /tmp/
@@ -70,10 +73,7 @@ RUN wget -O /tmp/ip7200-3.80-1-deb.tar.gz https://gdlp01.c-wss.com/gds/5/0100004
 #RUN /tmp/cnijfilter-ip7200series-3.80-1-deb/install.sh
 
 # Clean install files
-#RUN rm -rf /tmp/libpng-1.2.59 && rm /tmp/libpng-1.2.59.tar.xz
-#RUN rm -rf /tmp/tiff-4.6.0 && rm /tmp/tiff-4.6.0rc2.tar.xz
-#RUN rm /tmp/libpng12-0_1.2.54-6_amd64.deb
-#RUN rm /tmp/libtiff4_3.9.7-3_amd64.deb
+RUN rm /tmp/*.deb
 #RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.tar.gz
 
 # Copy the default configuration file
