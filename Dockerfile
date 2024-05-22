@@ -72,6 +72,9 @@ RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
 
+# Configure the ip7200 in cups
+RUN /usr/sbin/cupsd -f && sleep 5; lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0 && sleep 5; killall cupsd
+
 # Expose Ports
 EXPOSE 631
 EXPOSE 5353
@@ -79,6 +82,3 @@ EXPOSE 139
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
-
-# Configure the ip7200 in cups
-# RUN lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0
