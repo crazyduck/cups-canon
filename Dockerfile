@@ -4,6 +4,9 @@ MAINTAINER $MAINTAINER
 
 ARG ADMINUSER
 ARG ADMINPASS
+ARG PRINTER_NAME
+ARG PRINTER_DESCRIPTION
+ARG PRINTER_LOCATION
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
