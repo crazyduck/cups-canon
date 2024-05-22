@@ -4,9 +4,6 @@ MAINTAINER $MAINTAINER
 
 ARG ADMINUSER
 ARG ADMINPASS
-ARG PRINTER_NAME
-ARG PRINTER_DESCRIPTION
-ARG PRINTER_LOCATION
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
@@ -71,9 +68,8 @@ RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.
 
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
-
-# Configure the ip7200 in cups
-RUN /usr/sbin/cupsd && sleep 5; lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0 && sleep 30; killall cupsd
+# Copy init.sh
+COPY --chown=root:lp init.sh /init.sh
 
 # Expose Ports
 EXPOSE 631
@@ -81,4 +77,4 @@ EXPOSE 5353
 EXPOSE 139
 
 # Default shell
-CMD ["/usr/sbin/cupsd", "-f"]
+CMD ["sh","/init.sh"]
