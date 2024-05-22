@@ -77,4 +77,4 @@ EXPOSE 5353
 EXPOSE 139
 
 # Default shell
-CMD ["sh","/init.sh"]
+ENTRYPOINT ["/init.sh"]
