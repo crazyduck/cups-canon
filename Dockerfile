@@ -58,7 +58,8 @@ RUN useradd \
 
 # Get old packages
 RUN wget -O /tmp/libpng12-0_1.2.54-6_amd64.deb https://snapshot.debian.org/archive/debian/20160413T160058Z/pool/main/libp/libpng/libpng12-0_1.2.54-6_amd64.deb && dpkg -i /tmp/libpng12-0_1.2.54-6_amd64.deb
-RUN wget -O /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb https://snapshot.debian.org/archive/debian-security/20240503T212447Z/pool/updates/main/g/glibc/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb
+RUN wget -O /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb https://snapshot.debian.org/archive/debian-security/20240503T212447Z/pool/updates/main/g/glibc/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb && dpkg -i /tmp/multiarch-support_2.28-10%2Bdeb10u3_amd64.deb
+RUN wget -O /tmp/libjpeg8_8d1-2_amd64.deb https://snapshot.debian.org/archive/debian/20141009T042436Z/pool/main/libj/libjpeg8/libjpeg8_8d1-2_amd64.deb
 RUN wget -O /tmp/libtiff4_3.9.7-3_amd64.deb https://snapshot.debian.org/archive/debian/20131205T220552Z/pool/main/t/tiff3/libtiff4_3.9.7-3_amd64.deb
 
 # Get Canon driver and untar driver
