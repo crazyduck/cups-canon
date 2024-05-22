@@ -68,8 +68,6 @@ RUN dpkg -i /tmp/cnijfilter-ip7200series-3.80-1-deb/packages/*_amd64.deb
 RUN rm /tmp/*.deb
 RUN rm -rf /tmp/cnijfilter-ip7200series-3.80-1-deb && rm /tmp/ip7200-3.80-1-deb.tar.gz
 
-# Configure the ip7200 in cups
-RUN lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0
 
 # Copy the default configuration file
 COPY --chown=root:lp cupsd.conf /etc/cups/cupsd.conf
@@ -81,3 +79,6 @@ EXPOSE 139
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
+
+# Configure the ip7200 in cups
+RUN lpadmin -p $PRINTER_NAME -D "$PRINTER_DESCRIPTION" -E -L "$PRINTER_LOCATION" -m canonip7200.ppd -v cnijusb:/dev/usb/lp0
