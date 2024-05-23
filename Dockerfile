@@ -17,20 +17,21 @@ RUN apt-get update \
   cups-filters \
   foomatic-db-compressed-ppds \
   printer-driver-all \
+  printer-driver-cups-pdf \
+  printer-driver-gutenprint \
+  printer-driver-brlaser \
+  cups-backend-bjnp \
   openprinting-ppds \
   hpijs-ppds \
   hp-ppd \
   hplip \
   smbclient \
-  printer-driver-cups-pdf \
-  printer-driver-gutenprint \
-  cups-backend-bjnp \
   wget \
   libatk1.0-0 \
   libgtk2.0-0 \
   libpango1.0-0 \
-  #libpng12-0 \
-  #libtiff4 \
+  #libpng12-0 \ # not in apt bookworm sources anymore
+  #libtiff4 \   # not in apt bookworm sources anymore
   libxcursor1 \
   libxfixes3 \
   libxi6 \
