@@ -3,6 +3,8 @@ Docker compose Cups profile for Canon pixma ip7200
 
 Container will deploy a cups daemon which has a Canon Pixma ip7200 printer configured by default.
 
+Canon Pixma ip7200 will be connected by USB and available on host at /bus/usb/lp0.
+
 ### Customization
 Following variables may be overwritten by ENV variables
 
