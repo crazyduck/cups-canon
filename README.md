@@ -9,6 +9,7 @@ Following variables may be overwritten by ENV variables
 Cups admin user credentials:
  - ADMINUSER (default: print)
  - ADMINPASS (default: printpass)
+
 Printer settings:
  - PRINTER_NAME (default: ip7200)
  - PRINTER_DESCRIPTION (default: Canon Pixma ip7200)
