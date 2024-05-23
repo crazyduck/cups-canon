@@ -16,6 +16,7 @@ RUN apt-get update \
   cups-bsd \
   cups-filters \
   foomatic-db-compressed-ppds \
+  ink \
   printer-driver-all \
   printer-driver-cups-pdf \
   printer-driver-gutenprint \
