@@ -1,6 +1,7 @@
 # cups-canon
-Docker Cups profile for Canon pixma
+Docker compose Cups profile for Canon pixma ip7200
 
+Container will deploy a cups daemon which has a Canon Pixma ip7200 printer configured by default.
 
 if needed modify user / pass in compose.yml
 
